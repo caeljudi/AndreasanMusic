@@ -20,75 +20,77 @@ class DashboardLayout extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Section principale //
-          _mainSection(context),
-          // Section du mini player //
-          _playerSection(context),
+          // Section principale 90% de l'écran //
+          Expanded(
+            flex: 9,
+            child: _mainSection(context),
+          ),
+          // Section du mini player 10% de l'écran //
+          Expanded(
+            flex: 1,
+            child: _playerSection(context),
+          ),
         ],
       ),
     );
   }
 
-  Expanded _playerSection(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        height: 60,
-        width: double.infinity,
-        color: Theme.of(context).appTheme.colors.primary.light,
-        child: playerBar,
-      ),
+  Container _playerSection(BuildContext context) {
+    return Container(
+      height: 60,
+      width: double.infinity,
+      color: Theme.of(context).appTheme.colors.primary.light,
+      child: playerBar,
     );
   }
 
-  Expanded _mainSection(BuildContext context) {
-    return Expanded(
-      flex: 9,
-      child: Row(
-        children: [
-          // Section navigation //
-          _navigationSection(context),
-          // Section content principale //
-          _contentSection(context),
-        ],
-      ),
-    );
-  }
-
-  Expanded _contentSection(BuildContext context) {
-    return Expanded(
-      flex: 8,
-      child: Column(
-        children: [
-          // Top bar section avec profile ect.. //
-          topBar,
-          // Section du dashboard //
-          _content(context),
-        ],
-      ),
-    );
-  }
-
-  Expanded _content(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 50,
+  Row _mainSection(BuildContext context) {
+    return Row(
+      children: [
+        // Section navigation 20% de la main section (de 90 %) //
+        Expanded(
+          flex: 2,
+          child: _navigationSection(context),
         ),
-        width: double.infinity,
-        color: Theme.of(context).appTheme.colors.primary.medium,
-        child: child,
-      ),
+        // Section content principale 80 % de la main section (de 90%) //
+        Expanded(
+          flex: 8,
+          child: _contentSection(context),
+        ),
+      ],
     );
   }
 
-  Expanded _navigationSection(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        color: Theme.of(context).appTheme.colors.primary.darker,
-        child: navigationBar,
+  Column _contentSection(BuildContext context) {
+    return Column(
+      children: [
+        // Top bar section avec profile ect.. (definir une taille) //
+        topBar,
+        // Section du dashboard qui prends le reste de la place disponible sur la content section //
+        Expanded(
+          child: _content(context),
+        ),
+      ],
+    );
+  }
+
+  Container _content(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 50,
       ),
+      // width: double.infinity = prendre toute la width du container //
+      width: double.infinity,
+      // Theme.of(context).appTheme.ect à utiliser lorsque tu as des couleurs ou des textes //
+      color: Theme.of(context).appTheme.colors.primary.medium,
+      child: child,
+    );
+  }
+
+  Container _navigationSection(BuildContext context) {
+    return Container(
+      color: Theme.of(context).appTheme.colors.primary.darker,
+      child: navigationBar,
     );
   }
 }
