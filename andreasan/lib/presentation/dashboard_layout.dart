@@ -80,7 +80,7 @@ class DashboardLayout extends StatelessWidget {
       ),
       // width: double.infinity = prendre toute la width du container //
       width: double.infinity,
-      // Theme.of(context).appTheme.ect à utiliser lorsque tu as des couleurs ou des textes //
+      // Theme.of(context).appTheme.ect à utiliser lorsque tu as du styling => /lib/design_system/theme/* //
       color: Theme.of(context).appTheme.colors.primary.medium,
       child: child,
     );
