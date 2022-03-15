@@ -1,5 +1,10 @@
+import 'package:andreasan/models/appuser.dart';
 import 'package:andreasan/presentation/common/loading.dart';
+import 'package:andreasan/services/authentication_service.dart';
+import 'package:andreasan/services/database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthenticateScreen extends StatefulWidget {
   const AuthenticateScreen({Key? key}) : super(key: key);
@@ -16,6 +21,11 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
   final passwordController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -28,12 +38,7 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
     return loading
         ? const Loading()
         : Scaffold(
-            body: Container(
-              child: Form(
-                key: _formKey,
-                child: Column(),
-              ),
-            ),
+            body: Container(),
           );
   }
 }

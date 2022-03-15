@@ -1,7 +1,12 @@
 import 'package:andreasan/design_system/theme/theme_manager.dart';
 import 'package:andreasan/presentation/dashboard_layout.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+
+import '../../services/authentication_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,6 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
     return DashboardLayout(
       child: NotificationListener<UserScrollNotification>(
         onNotification: (notification) {
@@ -30,89 +36,14 @@ class _HomePageState extends State<HomePage> {
           }
           return true;
         },
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-              Text("toto"),
-            ],
-          ),
+        child: StreamBuilder(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(firebaseUser!.uid)
+              .snapshots(),
+          builder: (context, AsyncSnapshot snapshot) {
+            return Text(snapshot.data['name']);
+          },
         ),
       ),
       navigationBar: const Text("navigationbar"),
@@ -122,7 +53,12 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               width: double.infinity,
               color: Theme.of(context).appTheme.colors.primary.lighter,
-              child: const Text("topbar"),
+              child: ElevatedButton(
+                onPressed: () {
+                  context.read<AuthenticationService>().signout();
+                },
+                child: const Text("Sign out"),
+              ),
             )
           : Container(),
     );

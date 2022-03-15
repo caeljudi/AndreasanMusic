@@ -75,9 +75,6 @@ class DashboardLayout extends StatelessWidget {
 
   Container _content(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 50,
-      ),
       // width: double.infinity = prendre toute la width du container //
       width: double.infinity,
       // Theme.of(context).appTheme.ect à utiliser lorsque tu as du styling => /lib/design_system/theme/* //
