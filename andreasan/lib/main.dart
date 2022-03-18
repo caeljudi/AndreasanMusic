@@ -4,10 +4,12 @@ import 'package:andreasan/models/appuser.dart';
 import 'package:andreasan/presentation/dashboard_layout.dart';
 import 'package:andreasan/presentation/screens/authentication_wrapper.dart';
 import 'package:andreasan/presentation/screens/home_page.dart';
+import 'package:andreasan/presentation/screens/navigation/navigator.dart';
 import 'package:andreasan/services/authentication_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           initialData: null,
         ),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'AndreaSan',
         theme: ThemeManager.createTheme(AppTheme()),
         home: const AuthenticationWrapper(),

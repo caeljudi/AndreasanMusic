@@ -1,4 +1,5 @@
 import 'package:andreasan/presentation/screens/home_page.dart';
+import 'package:andreasan/presentation/screens/navigation/navigator.dart';
 import 'package:andreasan/presentation/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class AuthenticationWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User?>();
 
     if (firebaseUser != null) {
-      return const HomePage();
+      return const AppNavigator();
     }
     return SignInScreen();
   }
