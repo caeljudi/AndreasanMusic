@@ -1,10 +1,6 @@
 import 'package:andreasan/design_system/theme/app_theme.dart';
 import 'package:andreasan/design_system/theme/theme_manager.dart';
-import 'package:andreasan/models/appuser.dart';
-import 'package:andreasan/presentation/dashboard_layout.dart';
 import 'package:andreasan/presentation/screens/authentication_wrapper.dart';
-import 'package:andreasan/presentation/screens/home_page.dart';
-import 'package:andreasan/presentation/screens/navigation/navigator.dart';
 import 'package:andreasan/services/authentication_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

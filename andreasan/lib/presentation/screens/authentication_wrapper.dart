@@ -1,4 +1,3 @@
-import 'package:andreasan/presentation/screens/home_page.dart';
 import 'package:andreasan/presentation/screens/navigation/navigator.dart';
 import 'package:andreasan/presentation/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';

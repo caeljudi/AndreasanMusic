@@ -7,11 +7,13 @@ class SignInScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  // TO DO : Design de cette page qui est relativement dégueulasse pour l'instant xd //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
+          // TO DO : Créer un widget AppTextField réutilisable et beau stp hihi //
           TextField(
             controller: emailController,
             decoration: const InputDecoration(

@@ -13,16 +13,14 @@ class AppLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          topBar,
-          Expanded(
-            child: child,
-          ),
-          bottomNavigationBar,
-        ],
-      ),
+    return Column(
+      children: [
+        topBar,
+        Expanded(
+          child: child,
+        ),
+        bottomNavigationBar,
+      ],
     );
   }
 }
