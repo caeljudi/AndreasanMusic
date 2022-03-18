@@ -23,6 +23,8 @@ class AppNavigator extends StatefulWidget {
 class _AppNavigatorState extends State<AppNavigator> {
   int _selectedIndex = 0;
 
+  // Rajoute juste ton AppPages ici si tu veux créer une nouvelle page ;) avec la page en question, et la topbar //
+  // TO DO : Créer les pages home, music, favorite, profile ainsi que leur topbar //
   List<AppPages> pages = <AppPages>[
     AppPages(page: HomePage(), topBar: HomePageTopBar()),
     AppPages(page: MusicPage(), topBar: MusicPageTopBar()),
@@ -34,6 +36,7 @@ class _AppNavigatorState extends State<AppNavigator> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // LAYOUT DE L'APPLI MOBILE y'en aura un autre pour la partie desktop mais on changera juste la bottomnavigationbar //
         body: AppLayout(
           child: pages[_selectedIndex].page,
           bottomNavigationBar: CustomBottomNavigationBar(
@@ -64,6 +67,7 @@ class _AppNavigatorState extends State<AppNavigator> {
               ),
             ],
           ),
+          // topbar a crée pour chaque pages que tu fais car ça fait partie du layout =>>>> regarde plus haut List<AppPages> //
           topBar: Container(
             width: double.infinity,
             height: 80,
