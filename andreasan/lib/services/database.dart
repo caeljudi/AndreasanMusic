@@ -15,7 +15,7 @@ class DatabaseService {
 
   AppUser _userFromSnapShot(DocumentSnapshot snapshot) {
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-    return AppUser(id: uid, name: data['name']);
+    return AppUser(uid: uid, name: data['name'], songList: []);
   }
 
   List<AppUser> _userListFromSnapshot(QuerySnapshot snapshot) {

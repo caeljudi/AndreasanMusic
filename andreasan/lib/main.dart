@@ -1,3 +1,4 @@
+import 'package:andreasan/bindings.dart';
 import 'package:andreasan/design_system/theme/app_theme.dart';
 import 'package:andreasan/design_system/theme/theme_manager.dart';
 import 'package:andreasan/presentation/screens/authentication_wrapper.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: GetMaterialApp(
+        initialBinding: InitBindings(),
         title: 'AndreaSan',
         theme: ThemeManager.createTheme(AppTheme()),
         home: const AuthenticationWrapper(),

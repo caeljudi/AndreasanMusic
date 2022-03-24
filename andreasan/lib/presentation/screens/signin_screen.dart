@@ -34,7 +34,7 @@ class SignInScreen extends StatelessWidget {
                   );
             },
             child: const Text("Sign in"),
-          )
+          ),
         ],
       ),
     );
