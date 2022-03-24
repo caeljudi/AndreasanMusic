@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
           const SizedBox(height: 50.0,),
           Row(
             children: const [ Text('Playlist :          ',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold), 
               ),
               const SizedBox(height: 10.0,),
 

@@ -8,3 +8,4 @@ class FavoritePage extends StatelessWidget {
     return Container();
   }
 }
+ 

@@ -1,5 +1,5 @@
-import 'package:andreasan/design_system/theme/theme_manager.dart';
-import 'package:andreasan/presentation/screens/navigation/favorite_page.dart';
+import 'package:andreasan/design_system/theme/theme_manager.dart'; 
+import 'package:andreasan/presentation/screens/navigation/favorite_page.dart'; 
 import 'package:andreasan/presentation/screens/navigation/home_page.dart';
 import 'package:andreasan/presentation/screens/navigation/music_page.dart';
 import 'package:andreasan/presentation/screens/navigation/profile_page.dart';
@@ -93,7 +93,7 @@ class _AppNavigatorState extends State<AppNavigator> {
           ),
         ),
         floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 70.0),
+        padding: const EdgeInsets.only(bottom: 95.0),
         child: FloatingActionButton(
         child: const Icon(
           Icons.add,

@@ -15,7 +15,7 @@ class AppColors implements IColors {
       darker: const Color(0xff6A4700),
       dark: const Color(0xffD48D00),
       medium: const Color(0xffFFBF3F),
-      light: const Color(0xffFFD47F),
+      light: const Color(0xffFFD47F), 
       lighter: const Color(0xffFFEABF),
     );
     accent = ColorGroup(

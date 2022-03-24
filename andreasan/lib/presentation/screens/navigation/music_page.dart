@@ -9,7 +9,7 @@ import 'package:audioplayer/audioplayer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart'; 
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../models/song.dart';

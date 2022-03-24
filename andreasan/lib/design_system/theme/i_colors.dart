@@ -18,7 +18,7 @@ class ColorGroup {
 
 abstract class IColors {
   late ColorGroup primary;
-  late ColorGroup secondary;
+  late ColorGroup secondary; 
   late ColorGroup accent;
   late ColorGroup semanticInformative;
   late ColorGroup semanticSuccess;

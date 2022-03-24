@@ -50,7 +50,7 @@ class DashboardLayout extends StatelessWidget {
         // Section navigation 20% de la main section (de 90 %) //
         Expanded(
           child: _navigationSection(context),
-        ),
+        ), 
         // Section content principale 80 % de la main section (de 90%) //
         Expanded(
           flex: 7,

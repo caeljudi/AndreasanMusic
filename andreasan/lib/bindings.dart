@@ -12,3 +12,4 @@ class InitBindings extends Bindings {
     Get.lazyPut(() => AudioController());
   }
 }
+ 
