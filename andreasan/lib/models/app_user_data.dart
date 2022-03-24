@@ -3,23 +3,22 @@ import 'dart:convert';
 import 'package:andreasan/models/song.dart';
 import 'package:collection/collection.dart';
 
-class AppUser {
+class AppUserData {
   String uid;
   String name;
   List<Song> songList;
-
-  AppUser({
+  AppUserData({
     required this.uid,
     required this.name,
     required this.songList,
   });
 
-  AppUser copyWith({
+  AppUserData copyWith({
     String? uid,
     String? name,
     List<Song>? songList,
   }) {
-    return AppUser(
+    return AppUserData(
       uid: uid ?? this.uid,
       name: name ?? this.name,
       songList: songList ?? this.songList,
@@ -34,8 +33,8 @@ class AppUser {
     };
   }
 
-  factory AppUser.fromMap(Map<String, dynamic> map) {
-    return AppUser(
+  factory AppUserData.fromMap(Map<String, dynamic> map) {
+    return AppUserData(
       uid: map['uid'] ?? '',
       name: map['name'] ?? '',
       songList: List<Song>.from(map['songList']?.map((x) => Song.fromMap(x))),
@@ -44,18 +43,19 @@ class AppUser {
 
   String toJson() => json.encode(toMap());
 
-  factory AppUser.fromJson(String source) =>
-      AppUser.fromMap(json.decode(source));
+  factory AppUserData.fromJson(String source) =>
+      AppUserData.fromMap(json.decode(source));
 
   @override
-  String toString() => 'AppUser(uid: $uid, name: $name, songList: $songList)';
+  String toString() =>
+      'AppUserData(uid: $uid, name: $name, songList: $songList)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
-  
-    return other is AppUser &&
+
+    return other is AppUserData &&
         other.uid == uid &&
         other.name == name &&
         listEquals(other.songList, songList);

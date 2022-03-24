@@ -45,9 +45,10 @@ dependencies:
   bubble_bottom_bar: ^2.0.0
   get: ^4.6.1
   image_picker: ^0.8.4+11
-  firebase_storage: ^10.0.6
   # flutter_audio_query: ^0.3.5+6
   file_picker: ^3.0.4
+  firebase_storage: ^10.2.9
+  audioplayer: ^0.8.1
 
 dev_dependencies:
   flutter_test:
