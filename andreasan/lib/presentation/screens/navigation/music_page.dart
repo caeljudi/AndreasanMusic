@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../models/song.dart';
+import '../../widgets/progress_music_bar.dart';
 
 class MusicPage extends StatefulWidget {
   const MusicPage({Key? key}) : super(key: key);
@@ -70,10 +71,6 @@ class _MusicPageState extends State<MusicPage> {
                         MusicCard(
                           song: song,
                           onTap: () async {
-                            String downloadURL = await FirebaseStorage.instance
-                                .ref(song.fullPath)
-                                .getDownloadURL();
-                            audioController.playMusic(downloadURL);
                             setState(() {
                               currentSong = song;
                             });
@@ -89,9 +86,24 @@ class _MusicPageState extends State<MusicPage> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: MusicPlayer(
+            slider: Obx(
+              () => ProgressMusicBar(
+                duration: audioController.audioPlayer.duration,
+                position: audioController.position.value,
+              ),
+            ),
             artistName: "Calimero",
-            songName: "Calimero - Papillons ft. Zicca",
-            onTap: (bool isPlaying) {},
+            songName: currentSong != null ? currentSong!.name : "",
+            onTap: (bool isPlaying) async {
+              if (isPlaying) {
+                String downloadURL = await FirebaseStorage.instance
+                    .ref(currentSong!.fullPath)
+                    .getDownloadURL();
+                audioController.playMusic(downloadURL);
+              } else {
+                audioController.pauseMusic();
+              }
+            },
           ),
         ),
       ],

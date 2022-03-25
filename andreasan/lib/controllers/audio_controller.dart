@@ -5,17 +5,25 @@ import 'package:get/get.dart';
 class AudioController extends GetxController {
   AudioPlayer audioPlayer = AudioPlayer();
 
-  bool isPlaying = false;
-  String currentSong = "";
+  Rx<Song>? currentSong;
+  Rx<Duration> position = const Duration().obs;
 
   void playMusic(String url) async {
-    if (isPlaying && currentSong != url) {
-      audioPlayer.pause();
-      await audioPlayer.play(url);
-      currentSong = url;
-    } else if (!isPlaying) {
-      await audioPlayer.play(url);
-      isPlaying = true;
-    }
+    await audioPlayer.play(url);
+    audioPlayer.onAudioPositionChanged.listen((event) {
+      position.value = event;
+    });
+  }
+
+  void pauseMusic() async {
+    await audioPlayer.pause();
+  }
+
+  void stopMusic() async {
+    await audioPlayer.stop();
+  }
+
+  void seekMusic(double duration) async {
+    audioPlayer.seek(duration);
   }
 }
