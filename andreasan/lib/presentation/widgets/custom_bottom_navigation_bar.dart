@@ -17,7 +17,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
   final Function(int) onTap;
   final int selectedIndex;
 
-  final Color? selectedColor;
+  final Color? selectedColor; 
   final double? selectedSize;
 
   @override

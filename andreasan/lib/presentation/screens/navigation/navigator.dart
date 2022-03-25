@@ -1,5 +1,5 @@
-import 'package:andreasan/design_system/theme/theme_manager.dart';
-import 'package:andreasan/presentation/screens/navigation/favorite_page.dart';
+import 'package:andreasan/design_system/theme/theme_manager.dart'; 
+import 'package:andreasan/presentation/screens/navigation/favorite_page.dart'; 
 import 'package:andreasan/presentation/screens/navigation/home_page.dart';
 import 'package:andreasan/presentation/screens/navigation/music_page.dart';
 import 'package:andreasan/presentation/screens/navigation/profile_page.dart';
@@ -12,6 +12,9 @@ import 'package:andreasan/presentation/widgets/top_bar/profile_page_top_bar.dart
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io' as io;
+import 'dart:async';
 
 class AppNavigator extends StatefulWidget {
   const AppNavigator({Key? key}) : super(key: key);
@@ -22,9 +25,23 @@ class AppNavigator extends StatefulWidget {
 
 class _AppNavigatorState extends State<AppNavigator> {
   int _selectedIndex = 0;
-
+  
+  // final FlutterAudioQuery audioQuery = FlutterAudioQuery();
+  // pickAudio() async {
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //         type: FileType.custom,
+  //         allowedExtensions: ['mp3'],
+  //       );
+  //     if(result != null) {
+  //       // ignore: unused_local_variable
+  //       io.File file = io.File(result.files.single.path);
+  //     } else {
+  //  // User canceled the picker
+  //     } 
+  // }
   // Rajoute juste ton AppPages ici si tu veux créer une nouvelle page ;) avec la page en question, et la topbar //
   // TO DO : Créer les pages home, music, favorite, profile ainsi que leur topbar //
+
   List<AppPages> pages = <AppPages>[
     AppPages(page: HomePage(), topBar: HomePageTopBar()),
     AppPages(page: MusicPage(), topBar: MusicPageTopBar()),
@@ -70,12 +87,25 @@ class _AppNavigatorState extends State<AppNavigator> {
           // topbar a crée pour chaque pages que tu fais car ça fait partie du layout =>>>> regarde plus haut List<AppPages> //
           topBar: Container(
             width: double.infinity,
-            height: 80,
-            color: Colors.red,
+            height: 60,
+            color: const Color(0xff9CA3DB),
             child: pages[_selectedIndex].topBar,
           ),
         ),
+        floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 95.0),
+        child: FloatingActionButton(
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        backgroundColor: const Color(0xff0B88B2),
+        onPressed: () {
+          // context.read<AuthenticationService>().signout();
+        },
+        
       ),
+      ),)
     );
   }
 }

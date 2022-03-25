@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       navigationBar: const Text("navigationbar"),
-      playerBar: const Text("playerbar"),
+      playerBar: const Text("playerbar"), 
       topBar: isFabVisible
           ? Container(
               height: 50,

@@ -15,3 +15,4 @@ extension ThemeDataX on ThemeData {
   // If we want to switch between themes, make a ternary.
   AppTheme get appTheme => AppTheme();
 }
+ 

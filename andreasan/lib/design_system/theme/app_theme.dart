@@ -17,5 +17,5 @@ class AppTheme implements ITheme {
   }
 
   @override
-  IColors get colors => AppColors();
+  IColors get colors => AppColors(); 
 }

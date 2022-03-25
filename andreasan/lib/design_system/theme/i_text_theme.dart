@@ -16,7 +16,7 @@ abstract class ITextTheme {
   TextStyle? small2;
   TextStyle? small3;
   TextStyle? buttonText1;
-  TextStyle? buttonText2;
+  TextStyle? buttonText2; 
   TextStyle? label;
   String? fontFamily;
 }

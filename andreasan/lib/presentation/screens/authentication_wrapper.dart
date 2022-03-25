@@ -17,7 +17,7 @@ class AuthenticationWrapper extends GetView<UserController> {
       controller.initUser(firebaseUser);
       return const AppNavigator();
     }
-    return SignInScreen();
+    return SignInScreen(); 
   }
 
   void initUser(User? firebaseUser) async {

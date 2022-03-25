@@ -22,7 +22,7 @@ class MusicPlayer extends StatefulWidget {
   @override
   State<MusicPlayer> createState() => _MusicPlayerState();
 }
-
+ 
 class _MusicPlayerState extends State<MusicPlayer> {
   bool _isPlaying = false;
 

@@ -6,7 +6,7 @@ class AppLayout extends StatelessWidget {
       required this.topBar,
       required this.child,
       required this.bottomNavigationBar})
-      : super(key: key);
+      : super(key: key); 
   final Widget topBar;
   final Widget child;
   final Widget bottomNavigationBar;

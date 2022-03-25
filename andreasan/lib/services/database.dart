@@ -22,7 +22,7 @@ class DatabaseService {
     return snapshot.docs.map((doc) => _userFromSnapShot(doc)).toList();
   }
 
-  Stream<AppUser> get user {
+  Stream<AppUser> get user { 
     return userCollection.doc(uid).snapshots().map(_userFromSnapShot);
   }
 }

@@ -15,7 +15,7 @@ class AppTextTheme implements ITextTheme {
       fontSize: 39,
       fontWeight: FontWeight.bold,
       fontFamily: fontFamily,
-      color: colors.neutral.darker,
+      color: colors.neutral.darker, 
     );
     headline3 = TextStyle(
       fontSize: 31,
